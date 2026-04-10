@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/mood-based-melody-generator/static/js/main.7a96842a.js",
+    "static/js/453.470c3363.chunk.js": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js",
+    "index.html": "/mood-based-melody-generator/index.html",
+    "main.7a96842a.js.map": "/mood-based-melody-generator/static/js/main.7a96842a.js.map",
+    "453.470c3363.chunk.js.map": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.7a96842a.js"
+  ]
+}
