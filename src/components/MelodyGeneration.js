@@ -11,7 +11,9 @@ function MelodyGeneration({text}) {
 
     const [model, setModel] = useState(null);
     const [loading, setLoading] = useState(true);
-    let synth;
+    const [processing,setProcessing] = useState(false);
+
+    let synth = new Tone.PolySynth();
     const sentiment = new Sentiment(); 
 
     
@@ -113,6 +115,8 @@ function MelodyGeneration({text}) {
     const generateMelody = async () => {
         if (!model) return;
 
+        setProcessing(true);
+
         const { emotion } = analyzeEmotion(text);
         const settings = getMusicSettings(emotion);
 
@@ -138,19 +142,20 @@ function MelodyGeneration({text}) {
         console.log(result);
 
         playMelody(result, stepsPerQuarter, 120);
+        
     };
 
 
   
 
   const playMelody = async (sequence, stepsPerQuarter = 4, tempo = 120) => {
+    
+
     await Tone.start();
 
-    // Dispose previous synth if exists
-    if (synth) {
-        console.log("Disposing previous synth...");
-        synth.dispose(); 
-    }
+    console.log(Tone.context.state);
+
+    
 
     synth = new Tone.PolySynth(Tone.Synth).toDestination();
 
@@ -163,7 +168,9 @@ function MelodyGeneration({text}) {
 
   
 
-    let lastTime = 0;
+    const now = Tone.now();
+
+    let maxEndTime = 0;
 
     notes.forEach(note => {
 
@@ -172,22 +179,29 @@ function MelodyGeneration({text}) {
       let duration = (note.quantizedEndStep - note.quantizedStartStep) * secondsPerStep;
 
       // Ensure strictly increasing startTime
-      if (start <= lastTime) start = lastTime + 0.01;
-      lastTime = start;
+      const end = start + duration; 
+        if (end > maxEndTime) maxEndTime = end;
 
-      synth.triggerAttackRelease(
+      
+    synth.triggerAttackRelease(
         Tone.Frequency(note.pitch, "midi"),
         duration,
-        start
-      );
+        (now + start)
+    );
     });
+
+    setTimeout(() => {
+    setProcessing(false);
+    console.log("Finished playing");
+  }, (maxEndTime) * 1000);
 };
 
   return (
     <div>
       {loading ? (
         <p>Loading model...</p>
-      ) : (
+      ) : processing ? <p>Processing...</p>
+      : (
         <button disabled={text === ""?true: false} onClick={generateMelody}>
           Generate Melody
         </button>
