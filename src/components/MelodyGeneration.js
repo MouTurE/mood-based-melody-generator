@@ -12,6 +12,8 @@ function MelodyGeneration({text}) {
     const [model, setModel] = useState(null);
     const [loading, setLoading] = useState(true);
     const [processing,setProcessing] = useState(false);
+    const [isPlaying,setPlaying] = useState(false);
+    const [currentMelody,setMelody] = useState();
 
     let synth = new Tone.PolySynth();
     const sentiment = new Sentiment(); 
@@ -141,8 +143,8 @@ function MelodyGeneration({text}) {
 
         console.log(result);
 
-        playMelody(result, stepsPerQuarter, 120);
-        
+        setMelody(result);
+        setProcessing(false);
     };
 
 
@@ -150,12 +152,14 @@ function MelodyGeneration({text}) {
 
   const playMelody = async (sequence, stepsPerQuarter = 4, tempo = 120) => {
     
+    if (!currentMelody || isPlaying) {
+        return;
+    }
 
     await Tone.start();
 
     console.log(Tone.context.state);
-
-    
+    setPlaying(true);
 
     synth = new Tone.PolySynth(Tone.Synth).toDestination();
 
@@ -191,21 +195,30 @@ function MelodyGeneration({text}) {
     });
 
     setTimeout(() => {
-    setProcessing(false);
+    setPlaying(false);
     console.log("Finished playing");
   }, (maxEndTime) * 1000);
 };
 
   return (
-    <div>
+    <div className='button-container'>
+      
+      
+      
       {loading ? (
         <p>Loading model...</p>
       ) : processing ? <p>Processing...</p>
       : (
-        <button disabled={text === ""?true: false} onClick={generateMelody}>
-          Generate Melody
+        <button className='generate-button' disabled={text === ""?true: false} onClick={generateMelody}>
+          <b>Generate Melody</b>
         </button>
       )}
+
+      {!currentMelody ? null: <button className={isPlaying ? 'play-button-active' :'play-button'}  onClick={() => {playMelody(currentMelody)}}>
+          &#9658;
+        </button>}
+      
+
     </div>
   );
 }

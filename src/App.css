@@ -1,0 +1,100 @@
+.app-container {
+
+    padding: 20px;
+    border: 10px solid rgb(206, 206, 206);
+    border-radius: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+
+
+.app-title {
+    text-align: center;
+    color: #97b7be;
+}
+
+
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.generate-button {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #9B8EC7;
+    color: white;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.play-button {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #B4D3D9;
+    color: white;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.play-button-active {
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #B4D3D9;
+    box-shadow: inset 2px 2px 7px black;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 480px) {
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    }
+
+
+    .generate-button {
+    width: 100%;
+   
+}
+
+
+ .play-button {
+    width: 100%;
+   
+}
+
+}
+
+
+.generate-button:disabled{
+    background-color: #afa9c4;
+    color: gray;
+    cursor: not-allowed;
+}
+
+
+.info-box {
+    display:flex;
+    flex-direction:column;  
+    
+    box-shadow: 3px 3px 5px gray;
+    border-radius: 10px;
+    padding:20px;
+}
+
+.text-area {
+    border-radius: 10px;
+    
+}
+
