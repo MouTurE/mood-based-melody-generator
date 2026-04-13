@@ -55,16 +55,24 @@
 
 
 @media screen and (max-width: 480px) {
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 10px;
+
+    .app-container{
+        margin: auto;
+        padding: 0px;
+        width: 90%;
+        border: none;
     }
 
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 10px;
+        }
 
-    .generate-button {
-    width: 100%;
+
+        .generate-button {
+        width: 100%;
    
 }
 
@@ -72,6 +80,10 @@
  .play-button {
     width: 100%;
    
+}
+
+.play-button-active {
+    width: 100%;
 }
 
 }
