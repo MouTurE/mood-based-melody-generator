@@ -1,12 +1,15 @@
 {
   "files": {
-    "main.js": "/mood-based-melody-generator/static/js/main.df034d28.js",
+    "main.css": "/mood-based-melody-generator/static/css/main.9dd7c84f.css",
+    "main.js": "/mood-based-melody-generator/static/js/main.442df7e4.js",
     "static/js/453.470c3363.chunk.js": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js",
     "index.html": "/mood-based-melody-generator/index.html",
-    "main.df034d28.js.map": "/mood-based-melody-generator/static/js/main.df034d28.js.map",
+    "main.9dd7c84f.css.map": "/mood-based-melody-generator/static/css/main.9dd7c84f.css.map",
+    "main.442df7e4.js.map": "/mood-based-melody-generator/static/js/main.442df7e4.js.map",
     "453.470c3363.chunk.js.map": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.df034d28.js"
+    "static/css/main.9dd7c84f.css",
+    "static/js/main.442df7e4.js"
   ]
 }
