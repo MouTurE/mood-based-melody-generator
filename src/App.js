@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
+import EmojiPicker from 'emoji-picker-react';
+
 import MelodyGeneration from "./components/MelodyGeneration";
 import "./App.css"
+import EmojiIMG from "./laugh.png";
 
 function App() {
   
   const [text, setText] = useState("");
+  const [emojiMenuVisible,setEmojiMenuVisibility] = useState(false);
+
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
 
   return (
@@ -12,19 +19,33 @@ function App() {
     <div className="app-container">
       <h1 className="app-title">Mood Based Melody Generator</h1>
 
-       <textarea
-            className="text-area"
-            type="text"
-            placeholder="Write your journal entry..."
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            style={{width:"100%",height:"150px"}}
-            maxLength={700}
-            
-        />
+       <div className="interactables">
+        
+        <h4>{date}</h4>
+        
+         <textarea
+              className="text-area"
+              type="text"
+              placeholder="Write your journal entry..."
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+            }}
+              
+              maxLength={700}
+         
+          />
+         
+          <div className="text-toolbar">
+            <span style={{display:text.length > 0 ? "block":"none"}}>{text.length}/700</span>
+            <button onClick={() => setEmojiMenuVisibility(prev => !prev)}><img src={EmojiIMG}></img></button>
+          </div>
 
-      
-      <MelodyGeneration text={text}/>
+          <div style={{position:"absolute", top:"400px"}}>
+            <EmojiPicker className="EmojiPickerReact" open={emojiMenuVisible? true: false} onEmojiClick={(emojiObject) => setText((prev) => prev + emojiObject.emoji)} />
+          </div>
+          <MelodyGeneration text={text}/>
+       </div>
 
       <br/>
 

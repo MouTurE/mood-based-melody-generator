@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import * as mm from "@magenta/music";
 import * as Tone from "tone";
 import Sentiment from "sentiment";
+import LoadingIMG from "../Loading.svg";
+import PlayIcon from "../Play.png";
+import "./MelodyGeneration.css"
 
 
 
@@ -141,10 +144,13 @@ function MelodyGeneration({text}) {
 
         const result = await model.continueSequence(quantizedSeed, settings.steps, settings.temperature);
 
-        console.log(result);
+        setTimeout(() => {
+            console.log(result);
+            setMelody(result);
+            setProcessing(false);
+        }, 1000);
 
-        setMelody(result);
-        setProcessing(false);
+        
     };
 
 
@@ -201,22 +207,23 @@ function MelodyGeneration({text}) {
 };
 
   return (
-    <div className='button-container'>
+    <div className='button-container' style={{justifyContent: processing || !currentMelody ?"center": "space-between"}}>
       
       
       
       {loading ? (
         <p>Loading model...</p>
-      ) : processing ? <p>Processing...</p>
+      ) : processing ? 
+      <img style={{width:"40px",height:"40px"}} src={LoadingIMG}></img>
       : (
         <button className='generate-button' disabled={text === ""?true: false} onClick={generateMelody}>
           <b>Generate Melody</b>
         </button>
       )}
 
-      {!currentMelody ? null: <button className={isPlaying ? 'play-button-active' :'play-button'}  onClick={() => {playMelody(currentMelody)}}>
-          &#9658;
-        </button>}
+       <button style={{display:currentMelody && !processing ? "block" : "none"}} className={isPlaying ? 'play-button-active' :'play-button'}  onClick={() => {playMelody(currentMelody)}}>
+           <img className='play-icon' src={PlayIcon}></img>
+        </button>
       
 
     </div>
