@@ -1,16 +1,26 @@
 body{
-    background-image: url("./BackgroundIcon.png");
-    background-size: 150px;
-    background-repeat: space;
     
+    background-color: #0B1020;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("./images/BackgroundIcon.png");
+  background-repeat: space;
+  background-size: 140px;
+  opacity: 1%;
+  pointer-events: none;
 }
 
 
 .app-container {
 
     padding: 20px;
-    background-color: white;
-    border: 10px solid rgb(206, 206, 206);
+    background-color: #151826;
+    border: 1px solid #6D28D9;
     border-radius: 30px;
     width: 100%;
     max-width: 600px;
@@ -19,11 +29,10 @@ body{
 
 .app-title {
     text-align: center;
-    color: #97b7be;
+    background: linear-gradient(90deg, #C084FC, #A855F7, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-
-
-
 
 
 
@@ -34,14 +43,9 @@ body{
         padding: 0px;
         width: 90%;
         border: none;
+        background: none;
     }
 
-    body{
-    
-        background-size: 80px;
-    
-    
-    }
 
 }
 
@@ -50,17 +54,20 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 3px 3px 5px gray;
+    box-shadow: 3px 3px 5px #090B14;
+    background-color: #181B2A;
+    border: 1px solid #2A2F45;
     border-radius: 10px;
     padding: 20px;
     gap: 10px;
 }
 
+
+
 .text-toolbar{
     justify-self: left;
     align-self: flex-start;
     display:inline-flex;
-    border: 0px solid red;
     margin-left: 0px;
 }
 
@@ -80,15 +87,15 @@ body{
     opacity: 50%;
 }
 
-.interactables h4 {
+.date {
     justify-self: left;
     align-self: flex-start;
-    color:gray;
+    color:#7C8094;
     margin-bottom:0px;
 }
 
-.interactables span {
-    color: gray;
+.text-toolbar span {
+    color: #7C8094;
     margin-right: 20px;
     align-self: center;
 }
@@ -98,20 +105,11 @@ body{
     width: 100%;
     border: none;
     border-bottom: 0px solid black;
-    
+    background-color: #181B2A;
     height: 150px;
-    
+    color:#D1D5DB;
 }
 
-
-.info-box {
-    display:flex;
-    flex-direction:column;  
-    
-    box-shadow: 3px 3px 5px gray;
-    border-radius: 10px;
-    padding:20px;
-}
 
 
 

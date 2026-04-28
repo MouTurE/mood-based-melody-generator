@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import * as mm from "@magenta/music";
 import * as Tone from "tone";
 import Sentiment from "sentiment";
-import LoadingIMG from "../Loading.svg";
-import PlayIcon from "../Play.png";
+import LoadingIMG from "../images/Loading.svg";
+import PlayIcon from "../images/Play.png";
 import "./MelodyGeneration.css"
 
 

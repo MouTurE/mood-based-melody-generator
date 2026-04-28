@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import EmojiPicker from 'emoji-picker-react';
 
 import MelodyGeneration from "./components/MelodyGeneration";
+import InnerCard from "./components/InnerCard";
+
 import "./App.css"
-import EmojiIMG from "./laugh.png";
+import EmojiIMG from "./images/laugh.png";
 
 function App() {
   
@@ -17,11 +19,12 @@ function App() {
   return (
 
     <div className="app-container">
-      <h1 className="app-title">Mood Based Melody Generator</h1>
 
-       <div className="interactables">
+      <h1 className="app-title">Mood Based Melody Generator</h1>
         
-        <h4>{date}</h4>
+       <InnerCard alignItems="center">
+        
+        <h4 className="date">{date}</h4>
         
          <textarea
               className="text-area"
@@ -45,21 +48,23 @@ function App() {
             <EmojiPicker className="EmojiPickerReact" open={emojiMenuVisible? true: false} onEmojiClick={(emojiObject) => setText((prev) => prev + emojiObject.emoji)} />
           </div>
           <MelodyGeneration text={text}/>
-       </div>
+
+       </InnerCard>
 
       <br/>
 
-      <div className="info-box"> 
-        <p><b>Note:</b> Don't forget to turn up your volume and switch off 'silent mode' if you are using mobile phone </p>
+      
+      <InnerCard> 
+        <p><span style={{color:"#9F67FF"}}><b>Note:</b> </span> Don't forget to turn up your volume and switch off 'silent mode' if you are using mobile phone </p>
 
         <h4>Example journal entry prompts:</h4>
-        <ul> 
+        <ul style={{marginTop:"0px"}}> 
           <li>Today was amazing. I felt full of energy, everything went smoothly, and I’m really grateful and excited about what’s coming next.</li>
           <li>I woke up, had breakfast, and went to work. The day was fairly normal and nothing unusual happened.</li>
           <li>I feel exhausted and overwhelmed. Nothing seems to be going right lately, and I can't shake this sense of sadness and disappointment.</li>
         </ul>
     
-      </div>
+      </InnerCard>
     
     </div>
   );
