@@ -34,6 +34,17 @@ function MelodyGeneration({text}) {
         });
     }, []);
 
+    useEffect(() => {
+        const vinyl = document.getElementById("vinyl");
+
+        if (isPlaying) {
+            vinyl.classList.add("spin");
+        } else {
+            vinyl.classList.remove("spin");
+        }
+
+    }, [isPlaying]);
+
 
     const analyzeEmotion = (text) => {
 

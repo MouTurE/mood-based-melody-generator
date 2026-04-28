@@ -5,7 +5,9 @@ import MelodyGeneration from "./components/MelodyGeneration";
 import InnerCard from "./components/InnerCard";
 
 import "./App.css"
+
 import EmojiIMG from "./images/laugh.png";
+import VinylIMG from "./images/vinyl.png"
 
 function App() {
   
@@ -18,54 +20,57 @@ function App() {
 
   return (
 
-    <div className="app-container">
-
-      <h1 className="app-title">Mood Based Melody Generator</h1>
-        
-       <InnerCard alignItems="center">
-        
-        <h4 className="date">{date}</h4>
-        
-         <textarea
-              className="text-area"
-              type="text"
-              placeholder="Write your journal entry..."
-              value={text}
-              onChange={(e) => {
-                setText(e.target.value);
-            }}
-              
-              maxLength={700}
-         
-          />
-         
-          <div className="text-toolbar">
-            <span style={{display:text.length > 0 ? "block":"none"}}>{text.length}/700</span>
-            <button onClick={() => setEmojiMenuVisibility(prev => !prev)}><img src={EmojiIMG}></img></button>
-          </div>
-
-          <div style={{position:"absolute", top:"400px"}}>
-            <EmojiPicker className="EmojiPickerReact" open={emojiMenuVisible? true: false} onEmojiClick={(emojiObject) => setText((prev) => prev + emojiObject.emoji)} />
-          </div>
-          <MelodyGeneration text={text}/>
-
-       </InnerCard>
-
-      <br/>
+    <div className="app-wrapper">
 
       
-      <InnerCard> 
-        <p><span style={{color:"#9F67FF"}}><b>Note:</b> </span> Don't forget to turn up your volume and switch off 'silent mode' if you are using mobile phone </p>
 
-        <h4>Example journal entry prompts:</h4>
-        <ul style={{marginTop:"0px"}}> 
-          <li>Today was amazing. I felt full of energy, everything went smoothly, and I’m really grateful and excited about what’s coming next.</li>
-          <li>I woke up, had breakfast, and went to work. The day was fairly normal and nothing unusual happened.</li>
-          <li>I feel exhausted and overwhelmed. Nothing seems to be going right lately, and I can't shake this sense of sadness and disappointment.</li>
-        </ul>
-    
-      </InnerCard>
-    
+      <div className="app-container">
+        <h1 className="app-title">Mood Based Melody Generator</h1>
+         {/* Interactables */}
+
+         
+          <div className="vinyl"><img id="vinyl"  src={VinylIMG} /></div>
+           
+           <InnerCard alignItems="center">
+            <h4 className="date">{date}</h4>
+             <textarea
+                  className="text-area"
+                  type="text"
+                  placeholder="Write your journal entry..."
+                  value={text}
+                  onChange={(e) => {
+                    setText(e.target.value);
+                }}
+                  maxLength={700}
+              />
+              <div className="text-toolbar">
+                <span style={{display:text.length > 0 ? "block":"none"}}>{text.length}/700</span>
+                <button onClick={() => setEmojiMenuVisibility(prev => !prev)}><img src={EmojiIMG}></img></button>
+              </div>
+              <div className="emoji-picker">
+                <EmojiPicker  open={emojiMenuVisible? true: false} onEmojiClick={(emojiObject) => setText((prev) => prev + emojiObject.emoji)} />
+              </div>
+              <MelodyGeneration text={text}/>
+           </InnerCard>
+         
+      
+        {/* Info Box */}
+      
+        <InnerCard>
+          <p><span style={{color:"#9F67FF"}}><b>Note:</b> </span> Don't forget to turn up your volume and switch off 'silent mode' if you are using mobile phone </p>
+        </InnerCard>
+        <InnerCard>
+          <h4>Example journal entry prompts:</h4>
+          <ul style={{marginTop:"0px"}}>
+            <li>Today was amazing. I felt full of energy, everything went smoothly, and I’m really grateful and excited about what’s coming next.</li>
+            <li>I woke up, had breakfast, and went to work. The day was fairly normal and nothing unusual happened.</li>
+            <li>I feel exhausted and overwhelmed. Nothing seems to be going right lately, and I can't shake this sense of sadness and disappointment.</li>
+          </ul>
+      
+        </InnerCard>
+      
+      </div>
+
     </div>
   );
 }
