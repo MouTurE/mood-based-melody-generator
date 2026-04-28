@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/mood-based-melody-generator/static/css/main.c98c6810.css",
-    "main.js": "/mood-based-melody-generator/static/js/main.96ae6e89.js",
+    "main.css": "/mood-based-melody-generator/static/css/main.0e3460db.css",
+    "main.js": "/mood-based-melody-generator/static/js/main.5b990e76.js",
     "static/js/453.470c3363.chunk.js": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js",
+    "static/media/vinyl.png": "/mood-based-melody-generator/static/media/vinyl.1e1efee1c886daf1f54b.png",
+    "static/media/laugh.png": "/mood-based-melody-generator/static/media/laugh.a79ec61874843c41aa6f.png",
+    "static/media/BackgroundIcon.png": "/mood-based-melody-generator/static/media/BackgroundIcon.c8c551b0ed4cbb946eee.png",
     "static/media/Play.png": "/mood-based-melody-generator/static/media/Play.231b4fceee58cd133020.png",
-    "static/media/laugh.png": "/mood-based-melody-generator/static/media/laugh.4624ae56b9449efdd242.png",
     "index.html": "/mood-based-melody-generator/index.html",
-    "static/media/Loading.svg": "/mood-based-melody-generator/static/media/Loading.68a227702101536b8454681af019072c.svg",
-    "main.c98c6810.css.map": "/mood-based-melody-generator/static/css/main.c98c6810.css.map",
-    "main.96ae6e89.js.map": "/mood-based-melody-generator/static/js/main.96ae6e89.js.map",
+    "static/media/Loading.svg": "/mood-based-melody-generator/static/media/Loading.78c2a489b798427b359494235c8623dd.svg",
+    "main.0e3460db.css.map": "/mood-based-melody-generator/static/css/main.0e3460db.css.map",
+    "main.5b990e76.js.map": "/mood-based-melody-generator/static/js/main.5b990e76.js.map",
     "453.470c3363.chunk.js.map": "/mood-based-melody-generator/static/js/453.470c3363.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c98c6810.css",
-    "static/js/main.96ae6e89.js"
+    "static/css/main.0e3460db.css",
+    "static/js/main.5b990e76.js"
   ]
 }
